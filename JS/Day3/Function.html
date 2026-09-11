@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Closure Tasks</title>
+</head>
+
+<body>
+
+    <h1>Closure Tasks</h1>
+
+    <h2>Task 1 – Private Bank Balance</h2>
+    <p id="task1"></p>
+
+
+    <h2>Task 2 – Deposit Using Closure</h2>
+    <p id="task2"></p>
+
+
+    <h2>Task 3 – Private Counter</h2>
+    <p id="task3"></p>
+
+
+    <h2>Task 4 – Employee Salary Privacy</h2>
+    <p id="task4"></p>
+
+
+    <script>
+
+        // Task 1
+
+        function createBankAccount() {
+
+            let balance = 5000;
+
+            function checkBalance() {
+                return balance;
+            }
+
+            return checkBalance;
+        }
+
+        let account1 = createBankAccount();
+
+        let balance = 100000;
+
+        document.getElementById("task1").innerHTML =
+            "Outside Balance: " + balance +
+            "<br>Account Balance: " + account1();
+
+
+        // Task 2
+
+        function createAccount() {
+
+            let balance = 1000;
+
+            function deposit(amount) {
+                balance = balance + amount;
+            }
+
+            function getBalance() {
+                return balance;
+            }
+
+            return {
+                deposit: deposit,
+                getBalance: getBalance
+            };
+        }
+
+        let account2 = createAccount();
+
+        account2.deposit(500);
+        account2.deposit(200);
+
+        document.getElementById("task2").innerHTML =
+            "Account Balance: " + account2.getBalance();
+
+
+        // Task 3
+
+        function createCounter() {
+
+            let count = 0;
+
+            function increment() {
+                count++;
+            }
+
+            function decrement() {
+                count--;
+            }
+
+            function getCount() {
+                return count;
+            }
+
+            return {
+                increment: increment,
+                decrement: decrement,
+                getCount: getCount
+            };
+        }
+
+        let counter = createCounter();
+
+        counter.increment();
+        counter.increment();
+        counter.increment();
+        counter.decrement();
+
+        let outsideCount = 100;
+
+        document.getElementById("task3").innerHTML =
+            "Counter: " + counter.getCount() +
+            "<br>Outside Count: " + outsideCount +
+            "<br>Counter After Outside Count: " + counter.getCount();
+
+
+        // Task 4
+
+        function createEmployee(name, initialSalary) {
+
+            let salary = initialSalary;
+
+            function getName() {
+                return name;
+            }
+
+            function getSalary() {
+                return salary;
+            }
+
+            function increaseSalary(amount) {
+
+                if (amount >= 0) {
+                    salary = salary + amount;
+                }
+
+            }
+
+            return {
+                getName: getName,
+                getSalary: getSalary,
+                increaseSalary: increaseSalary
+            };
+        }
+
+        let employee = createEmployee("Arun", 25000);
+
+        employee.increaseSalary(5000);
+
+        let outsideSalary = 100000;
+
+        document.getElementById("task4").innerHTML =
+            "Employee Name: " + employee.getName() +
+            "<br>Employee Salary: " + employee.getSalary() +
+            "<br>Outside Salary: " + outsideSalary +
+            "<br>Employee Salary After Outside Salary: " +
+            employee.getSalary();
+
+    </script>
+
+</body>
+</html>
