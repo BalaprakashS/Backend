@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Closure Tasks</title>
+</head>
+
+<body>
+
+    <h2>Task 1 - Private Salary</h2>
+
+    <p id="salaryOutput"></p>
+
+    <h2>Task 2 - Product Stock</h2>
+
+    <p id="stockOutput"></p>
+
+    <script>
+
+        function createEmployee() {
+
+            let salary = 20000;
+
+            let updateSalary = (amount) => {
+                salary = salary + amount;
+                return salary;
+            };
+
+            return updateSalary;
+        }
+
+        let updateSalary = createEmployee();
+
+        document.getElementById("salaryOutput").innerHTML =
+            updateSalary(5000) + "<br>" +
+            updateSalary(3000) + "<br>" +
+            updateSalary(2000);
+
+
+        function createStock() {
+
+            let stock = 10;
+
+            let addStock = (quantity) => {
+                stock = stock + quantity;
+                return stock;
+            };
+
+            let sellProduct = (quantity) => {
+
+                if (quantity > stock) {
+                    return "Not enough stock";
+                }
+
+                stock = stock - quantity;
+                return stock;
+            };
+
+            return {
+                addStock,
+                sellProduct
+            };
+        }
+
+        let product = createStock();
+
+        document.getElementById("stockOutput").innerHTML =
+            product.addStock(5) + "<br>" +
+            product.sellProduct(3) + "<br>" +
+            product.sellProduct(2) + "<br>" +
+            product.sellProduct(20);
+
+    </script>
+
+</body>
+</html>
