@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array Tasks</title>
+</head>
+<body>
+
+    <h1>Array Tasks</h1>
+
+    <h2>Task 1 – Student Names</h2>
+    <div id="task1"></div>
+
+    <h2>Task 2 – Product Prices</h2>
+    <div id="task2"></div>
+
+    <h2>Task 3 – Find Array Value Using Index</h2>
+    <div id="task3"></div>
+
+    <h2>Task 4 – Nested Array Access</h2>
+    <div id="task4"></div>
+
+    <h2>Task 5 – Logical Array Access</h2>
+    <div id="task5"></div>
+
+
+    <script>
+
+        // TASK 1
+
+        let students = ["Arun", "Bala", "Kumar", "Rahul", "Vijay"];
+
+        let firstStudent = students[0];
+        let thirdStudent = students[2];
+        let lastStudent = students[students.length - 1];
+
+        document.getElementById("task1").innerHTML =
+            firstStudent + "<br>" +
+            thirdStudent + "<br>" +
+            lastStudent;
+
+
+        // TASK 2
+
+        let prices = [1500, 2500, 3500, 4500, 5500];
+
+        let firstPrice = prices[0];
+        let thirdPrice = prices[2];
+        let lastPrice = prices[4];
+
+        let total = firstPrice + lastPrice;
+
+        document.getElementById("task2").innerHTML =
+            firstPrice + "<br>" +
+            thirdPrice + "<br>" +
+            lastPrice + "<br>" +
+            "Total: " + total;
+
+
+        // TASK 3
+
+        let arr = ["HTML", "CSS", "JavaScript", "React", "Node"];
+
+        let javascript = arr[2];
+        let react = arr[3];
+        let node = arr[arr.length - 1];
+
+        document.getElementById("task3").innerHTML =
+            javascript + "<br>" +
+            react + "<br>" +
+            node;
+
+
+        // TASK 4
+
+        let data = [
+            ["Arun", 80],
+            ["Bala", 75],
+            ["Kumar", 90]
+        ];
+
+        let arun = data[0][0];
+        let arunMark = data[0][1];
+        let bala = data[1][0];
+        let kumarMark = data[2][1];
+
+        document.getElementById("task4").innerHTML =
+            arun + "<br>" +
+            arunMark + "<br>" +
+            bala + "<br>" +
+            kumarMark;
+
+
+        // TASK 5
+
+        let numbers = [10, 20, 30, 40, 50];
+
+        let secondValue = numbers[1];
+        let secondLastValue = numbers[numbers.length - 2];
+
+        let answer = secondValue + secondLastValue;
+
+        document.getElementById("task5").innerHTML =
+            answer;
+
+    </script>
+
+</body>
+</html>
