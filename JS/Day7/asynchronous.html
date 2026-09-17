@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Callback Promise Async Await</title>
+</head>
+
+<body>
+
+    <h1>Callback, Promise & Async/Await</h1>
+
+    <h2>Task 1 – Callback</h2>
+    <p id="task1"></p>
+
+    <h2>Task 2 – Promise</h2>
+    <p id="task2"></p>
+
+    <h2>Task 3 – Async / Await</h2>
+    <p id="task3"></p>
+
+
+    <script>
+
+        // TASK 1 – CALLBACK
+
+        const calculate = (a, b, callback) => {
+
+            let result = a + b;
+
+            callback(result);
+
+        };
+
+        calculate(10, 20, (result) => {
+
+            document.getElementById("task1").innerHTML =
+                "Result: " + result;
+
+        });
+
+
+        // TASK 2 – PROMISE
+
+        const checkNumber = (number) => {
+
+            return new Promise((resolve, reject) => {
+
+                if (number > 10) {
+                    resolve("Valid Number");
+                }
+                else {
+                    reject("Invalid Number");
+                }
+
+            });
+
+        };
+
+
+        checkNumber(20)
+
+        .then((result) => {
+
+            document.getElementById("task2").innerHTML =
+                "Success: " + result;
+
+        })
+
+        .catch((error) => {
+
+            document.getElementById("task2").innerHTML =
+                "Error: " + error;
+
+        });
+
+
+        // TASK 3 – ASYNC / AWAIT
+
+        const verifyNumber = async () => {
+
+            try {
+
+                const result = await checkNumber(20);
+
+                document.getElementById("task3").innerHTML =
+                    "Success: " + result;
+
+            }
+            catch (error) {
+
+                document.getElementById("task3").innerHTML =
+                    "Error: " + error;
+
+            }
+
+        };
+
+        verifyNumber();
+
+    </script>
+
+</body>
+</html>

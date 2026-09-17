@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map Filter Find Reduce Tasks</title>
+</head>
+
+<body>
+
+    <h1>JavaScript Array Methods</h1>
+
+    <h2>Task 1 – MAP: Employee Salary Increment</h2>
+    <p id="task1"></p>
+
+    <h2>Task 2 – FILTER: Eligible Students</h2>
+    <p id="task2"></p>
+
+    <h2>Task 3 – FIND: Find One Product</h2>
+    <p id="task3"></p>
+
+    <h2>Task 4 – REDUCE: Shopping Cart Total</h2>
+    <p id="task4"></p>
+
+    <h2>Task 5 – Combined Real-World Task</h2>
+    <p id="task5"></p>
+
+
+    <script>
+
+        // TASK 1 – MAP
+
+        let salaries = [15000, 20000, 25000, 30000, 35000];
+
+        let updatedSalaries = salaries.map(function(salary) {
+            return salary + 2000;
+        });
+
+        document.getElementById("task1").innerHTML =
+            "Original Salaries: " + salaries.join(", ") +
+            "<br>Updated Salaries: " + updatedSalaries.join(", ");
+
+
+        // TASK 2 – FILTER
+
+        let marks = [35, 78, 42, 90, 25, 67, 55];
+
+        let eligibleStudents = marks.filter(function(mark) {
+            return mark >= 50;
+        });
+
+        document.getElementById("task2").innerHTML =
+            "Eligible Marks: " + eligibleStudents.join(", ");
+
+
+        // TASK 3 – FIND
+
+        let products = [
+            { id: 101, name: "Laptop", price: 55000 },
+            { id: 102, name: "Mouse", price: 800 },
+            { id: 103, name: "Keyboard", price: 1500 },
+            { id: 104, name: "Monitor", price: 12000 }
+        ];
+
+        let product = products.find(function(item) {
+            return item.id === 103;
+        });
+
+        document.getElementById("task3").innerHTML =
+            "Complete Product: " +
+            JSON.stringify(product) +
+            "<br>Product Name: " + product.name;
+
+
+        // TASK 4 – REDUCE
+
+        let cart = [
+            { name: "Shirt", price: 1200 },
+            { name: "Shoes", price: 2500 },
+            { name: "Watch", price: 3000 },
+            { name: "Bag", price: 1500 }
+        ];
+
+        let total = cart.reduce(function(accumulator, item) {
+            return accumulator + item.price;
+        }, 0);
+
+        document.getElementById("task4").innerHTML =
+            "Total Cart Price: ₹" + total;
+
+
+        // TASK 5 – COMBINED
+
+        let students = [
+            { id: 1, name: "Arun", mark: 85 },
+            { id: 2, name: "Bala", mark: 45 },
+            { id: 3, name: "Kumar", mark: 72 },
+            { id: 4, name: "Priya", mark: 95 },
+            { id: 5, name: "Ravi", mark: 38 }
+        ];
+
+
+        // 1. MAP – Student Names
+
+        let studentNames = students.map(function(student) {
+            return student.name;
+        });
+
+
+        // 2. FILTER – Mark 60 or above
+
+        let passedStudents = students.filter(function(student) {
+            return student.mark >= 60;
+        });
+
+
+        // 3. FIND – ID 4
+
+        let selectedStudent = students.find(function(student) {
+            return student.id === 4;
+        });
+
+
+        // 4. REDUCE – Total Marks
+
+        let totalMarks = students.reduce(function(total, student) {
+            return total + student.mark;
+        }, 0);
+
+
+        // 5. REDUCE – Average Mark
+
+        let averageMark = students.reduce(function(total, student) {
+            return total + student.mark;
+        }, 0) / students.length;
+
+
+        document.getElementById("task5").innerHTML =
+            "<b>Student Names:</b> " + studentNames.join(", ") +
+            "<br><br>" +
+
+            "<b>Students with mark 60 or above:</b><br>" +
+            passedStudents.map(function(student) {
+                return student.name;
+            }).join("<br>") +
+
+            "<br><br>" +
+
+            "<b>Student with ID 4:</b> " +
+            JSON.stringify(selectedStudent) +
+
+            "<br><br>" +
+
+            "<b>Total Marks:</b> " + totalMarks +
+
+            "<br><br>" +
+
+            "<b>Average Mark:</b> " + averageMark;
+
+
+    </script>
+
+</body>
+</html>
