@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Logical & Business Logic Tasks</title>
+</head>
+
+<body>
+
+    <h1>JavaScript – Logical & Business Logic Tasks</h1>
+
+    <div id="output"></div>
+
+    <script>
+
+        let output = document.getElementById("output");
+
+
+        // TASK 1 – ELECTRICITY BILL CALCULATION
+
+        let customerName = "Bala";
+        let unitsConsumed = 250;
+        let bill = 0;
+
+        if (unitsConsumed <= 100) {
+            bill = unitsConsumed * 2;
+        }
+        else if (unitsConsumed <= 200) {
+            bill = (100 * 2) + ((unitsConsumed - 100) * 3);
+        }
+        else {
+            bill = (100 * 2) + (100 * 3) + ((unitsConsumed - 200) * 5);
+        }
+
+        output.innerHTML += `
+            <h2>Task 1 – Electricity Bill</h2>
+            Customer Name: ${customerName}<br>
+            Units Consumed: ${unitsConsumed}<br>
+            Electricity Bill: ₹${bill}
+            <hr>
+        `;
+
+
+        // TASK 2 – ATM CASH WITHDRAWAL
+
+        let balance = 15000;
+        let withdrawAmount = 4000;
+
+        output.innerHTML += `
+            <h2>Task 2 – ATM Cash Withdrawal</h2>
+        `;
+
+        if (withdrawAmount <= 0) {
+            output.innerHTML += "Invalid withdrawal amount";
+        }
+        else if (withdrawAmount % 500 !== 0) {
+            output.innerHTML += "Amount must be a multiple of 500";
+        }
+        else if (withdrawAmount > balance) {
+            output.innerHTML += "Insufficient balance";
+        }
+        else {
+            balance = balance - withdrawAmount;
+
+            output.innerHTML += `
+                Withdrawal Successful<br>
+                Withdrawn Amount: ₹${withdrawAmount}<br>
+                Remaining Balance: ₹${balance}
+            `;
+        }
+
+        output.innerHTML += "<hr>";
+
+
+        // TASK 3 – EMPLOYEE LOGIN ATTEMPTS
+
+        let correctPin = 1234;
+        let enteredPins = [1111, 2222, 1234];
+
+        output.innerHTML += `
+            <h2>Task 3 – Employee Login</h2>
+        `;
+
+        for (let i = 0; i < 3; i++) {
+
+            let enteredPin = enteredPins[i];
+
+            if (enteredPin === correctPin) {
+                output.innerHTML += "Login Successful<br>";
+                break;
+            }
+            else {
+                output.innerHTML += "Incorrect PIN<br>";
+            }
+
+            if (i === 2) {
+                output.innerHTML += "Account Blocked<br>";
+            }
+        }
+
+        output.innerHTML += "<hr>";
+
+
+        // TASK 4 – MULTIPLICATION BILL TABLE
+
+        let productPrice = 250;
+
+        output.innerHTML += `
+            <h2>Task 4 – Multiplication Bill Table</h2>
+        `;
+
+        for (let quantity = 1; quantity <= 5; quantity++) {
+
+            let totalPrice = quantity * productPrice;
+
+            output.innerHTML += `
+                Quantity ${quantity} = ₹${totalPrice}<br>
+            `;
+        }
+
+        output.innerHTML += "<hr>";
+
+
+        // TASK 5 – SEAT BOOKING DISPLAY
+
+        let rows = 3;
+        let seats = 5;
+
+        output.innerHTML += `
+            <h2>Task 5 – Seat Booking Display</h2>
+        `;
+
+        for (let row = 1; row <= rows; row++) {
+
+            for (let seat = 1; seat <= seats; seat++) {
+
+                output.innerHTML += `
+                    Row ${row} - Seat ${seat}<br>
+                `;
+            }
+        }
+
+    </script>
+
+</body>
+</html>
