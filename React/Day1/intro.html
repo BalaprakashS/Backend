@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Basics - Theory Tasks</title>
+</head>
+
+<body>
+
+    <h1>REACT BASICS – 5 READING / THEORY TASKS</h1>
+
+    <hr>
+
+    <!-- TASK 1 -->
+    <h2>TASK 1 – REACT BASICS</h2>
+
+    <h3>1. What is React?</h3>
+    <p>
+        React is a JavaScript library used to build user interfaces,
+        especially for web applications.
+    </p>
+
+    <h3>2. Why do we use React?</h3>
+    <p>We use React to:</p>
+    <ul>
+        <li>Build interactive websites.</li>
+        <li>Create reusable UI components.</li>
+        <li>Manage changing data easily.</li>
+        <li>Build Single Page Applications.</li>
+        <li>Make UI development organized.</li>
+    </ul>
+
+    <h3>3. Is React a library or framework?</h3>
+    <p>
+        React is a <strong>JavaScript library</strong>, mainly focused on
+        building user interfaces.
+    </p>
+
+    <h3>4. What are the main features of React?</h3>
+    <ul>
+        <li>Components</li>
+        <li>JSX</li>
+        <li>Props</li>
+        <li>State</li>
+        <li>Declarative UI</li>
+        <li>Virtual DOM</li>
+        <li>Reusability</li>
+        <li>One-way data flow</li>
+    </ul>
+
+    <h3>5. What is a Single Page Application (SPA)?</h3>
+    <p>
+        A Single Page Application is a web application where the browser
+        loads one main page and updates the required content without
+        completely reloading the page.
+    </p>
+
+    <h3>6. What is declarative UI?</h3>
+    <p>
+        Declarative UI means describing <strong>what the UI should look like</strong>.
+        React handles the process of updating the UI.
+    </p>
+
+    <hr>
+
+    <!-- TASK 2 -->
+    <h2>TASK 2 – COMPONENTS</h2>
+
+    <h3>1. What is a Component in React?</h3>
+    <p>
+        A component is a reusable piece of UI in a React application.
+    </p>
+
+    <pre>
+function Welcome() {
+    return &lt;h1&gt;Hello&lt;/h1&gt;;
+}
+    </pre>
+
+    <h3>2. Why do we use Components?</h3>
+    <ul>
+        <li>To reuse code.</li>
+        <li>To organize the application.</li>
+        <li>To make code easier to maintain.</li>
+        <li>To divide a large UI into smaller parts.</li>
+    </ul>
+
+    <h3>3. What is a Functional Component?</h3>
+    <p>
+        A functional component is a JavaScript function that returns JSX.
+    </p>
+
+    <pre>
+function App() {
+    return &lt;h1&gt;Hello React&lt;/h1&gt;;
+}
+    </pre>
+
+    <h3>4. What is Component-Based Architecture?</h3>
+    <p>
+        It is an approach where an application is divided into small,
+        independent and reusable components.
+    </p>
+
+    <pre>
+App
+ ├── Navbar
+ ├── Home
+ ├── Product
+ └── Footer
+    </pre>
+
+    <h3>5. What is a Component Tree?</h3>
+    <p>
+        A component tree shows the parent-child relationship between components.
+    </p>
+
+    <pre>
+App
+ ├── Navbar
+ ├── Main
+ │    ├── Card
+ │    └── Card
+ └── Footer
+    </pre>
+
+    <h3>6. Why should component names start with a capital letter?</h3>
+    <p>
+        React uses capitalization to distinguish custom components from
+        HTML elements.
+    </p>
+
+    <pre>
+function Header() {
+    return &lt;h1&gt;Header&lt;/h1&gt;;
+}
+
+&lt;Header /&gt;
+    </pre>
+
+    <h3>7. What is a reusable component?</h3>
+    <p>
+        A reusable component is a component that can be used multiple times
+        in different places.
+    </p>
+
+    <pre>
+function Button() {
+    return &lt;button&gt;Click&lt;/button&gt;;
+}
+
+&lt;Button /&gt;
+&lt;Button /&gt;
+&lt;Button /&gt;
+    </pre>
+
+    <hr>
+
+    <!-- TASK 3 -->
+    <h2>TASK 3 – JSX</h2>
+
+    <h3>1. What is JSX?</h3>
+    <p>
+        JSX stands for <strong>JavaScript XML</strong>. It allows us to write
+        HTML-like syntax inside JavaScript code.
+    </p>
+
+    <pre>
+const element = &lt;h1&gt;Hello React&lt;/h1&gt;;
+    </pre>
+
+    <h3>2. Why do we use JSX in React?</h3>
+    <ul>
+        <li>It is easy to read.</li>
+        <li>It is easy to write.</li>
+        <li>It makes UI code easier to understand.</li>
+        <li>It combines JavaScript logic with UI.</li>
+    </ul>
+
+    <h3>3. Is JSX HTML?</h3>
+    <p>
+        No. JSX looks similar to HTML, but it is JavaScript syntax that
+        is transformed into React elements.
+    </p>
+
+    <h3>4. How do we write JavaScript expressions inside JSX?</h3>
+    <p>
+        We use <strong>curly braces {}</strong>.
+    </p>
+
+    <pre>
+const name = "Bala";
+
+return &lt;h1&gt;Hello {name}&lt;/h1&gt;;
+    </pre>
+
+    <h3>5. Why do we use className instead of class?</h3>
+    <p>
+        React uses <strong>className</strong> instead of class for CSS classes.
+    </p>
+
+    <pre>
+&lt;div className="container"&gt;
+    Hello
+&lt;/div&gt;
+    </pre>
+
+    <h3>6. What is React Fragment?</h3>
+    <p>
+        A Fragment allows us to group multiple elements without adding
+        an extra HTML element to the DOM.
+    </p>
+
+    <pre>
+&lt;&gt;
+    &lt;h1&gt;Hello&lt;/h1&gt;
+    &lt;p&gt;Welcome&lt;/p&gt;
+&lt;/&gt;
+    </pre>
+
+    <h3>7. What are the important JSX rules?</h3>
+    <ul>
+        <li>Return one parent element or Fragment.</li>
+        <li>Close all HTML tags.</li>
+        <li>Use className instead of class.</li>
+        <li>Use {} for JavaScript expressions.</li>
+        <li>Use camelCase for many JSX attributes.</li>
+    </ul>
+
+    <pre>
+&lt;button onClick={handleClick}&gt;Click&lt;/button&gt;
+    </pre>
+
+    <hr>
+
+    <!-- TASK 4 -->
+    <h2>TASK 4 – DOM, VIRTUAL DOM &amp; RECONCILIATION</h2>
+
+    <h3>1. What is DOM?</h3>
+    <p>
+        DOM stands for <strong>Document Object Model</strong>.
+        It represents the HTML page as a tree of objects that JavaScript
+        can access and modify.
+    </p>
+
+    <pre>
+HTML
+ ├── head
+ └── body
+      ├── h1
+      └── p
+    </pre>
+
+    <h3>2. What is Virtual DOM?</h3>
+    <p>
+        Virtual DOM is an in-memory representation of the UI that React
+        uses to determine what parts of the UI need to be updated.
+    </p>
+
+    <h3>3. What is the difference between DOM and Virtual DOM?</h3>
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>DOM</th>
+            <th>Virtual DOM</th>
+        </tr>
+
+        <tr>
+            <td>Represents the actual browser UI.</td>
+            <td>Represents the UI in memory.</td>
+        </tr>
+
+        <tr>
+            <td>Managed by the browser.</td>
+            <td>Used by React.</td>
+        </tr>
+
+        <tr>
+            <td>Changes affect the actual page.</td>
+            <td>Helps calculate required changes.</td>
+        </tr>
+
+        <tr>
+            <td>Can be expensive to update frequently.</td>
+            <td>Helps minimize unnecessary DOM updates.</td>
+        </tr>
+    </table>
+
+    <h3>4. What is Reconciliation in React?</h3>
+    <p>
+        Reconciliation is React's process of comparing the previous rendered
+        result with the new rendered result and determining what needs to
+        change in the actual DOM.
+    </p>
+
+    <h3>5. What is Diffing?</h3>
+    <p>
+        Diffing is the comparison process React uses to identify differences
+        between the previous and new element trees.
+    </p>
+
+    <pre>
+Previous:
+&lt;h1&gt;Hello&lt;/h1&gt;
+
+New:
+&lt;h1&gt;Welcome&lt;/h1&gt;
+    </pre>
+
+    <p>
+        React detects that the text has changed.
+    </p>
+
+    <h3>6. How does React identify changes in the UI?</h3>
+    <p>
+        React compares the previous and new React element trees during
+        reconciliation. It uses element types, position and keys for list
+        items to determine which elements changed.
+    </p>
+
+    <h3>7. Why is key important while rendering lists?</h3>
+    <p>
+        A key gives each list item a stable identity. It helps React correctly
+        identify items when a list is added to, removed from, or reordered.
+    </p>
+
+    <pre>
+users.map(user =&gt; (
+    &lt;p key={user.id}&gt;{user.name}&lt;/p&gt;
+))
+    </pre>
+
+    <hr>
+
+    <!-- TASK 5 -->
+    <h2>TASK 5 – REACT RENDERING PROCESS</h2>
+
+    <h3>React Rendering Flow</h3>
+
+    <pre>
+Component
+    ↓
+JSX
+    ↓
+Rendering
+    ↓
+React Element Tree
+    ↓
+State or Props Change
+    ↓
+Re-render
+    ↓
+Reconciliation
+    ↓
+Diffing
+    ↓
+Required DOM Update
+    ↓
+Browser UI
+    </pre>
+
+    <h3>1. What is Rendering?</h3>
+    <p>
+        Rendering is the process where React runs a component and calculates
+        what the UI should look like.
+    </p>
+
+    <pre>
+function App() {
+    return &lt;h1&gt;Hello&lt;/h1&gt;;
+}
+    </pre>
+
+    <h3>2. What is Re-rendering?</h3>
+    <p>
+        Re-rendering means React runs a component again to calculate its
+        updated UI. It can happen when state or props change.
+    </p>
+
+    <h3>3. What causes a component to re-render?</h3>
+    <ul>
+        <li>State changes.</li>
+        <li>Parent component re-renders.</li>
+        <li>Context value changes.</li>
+        <li>Other React updates can cause rendering.</li>
+    </ul>
+
+    <pre>
+const [count, setCount] = useState(0);
+
+setCount(count + 1);
+    </pre>
+
+    <h3>4. Does re-render mean the complete browser DOM is recreated?</h3>
+    <p>
+        <strong>No.</strong> A re-render does not mean React destroys and
+        recreates the entire browser DOM.
+    </p>
+
+    <p>
+        React calculates the new UI representation, compares it with the
+        previous one, and applies the necessary DOM changes.
+    </p>
+
+    <h3>5. What happens during reconciliation?</h3>
+
+    <ol>
+        <li>React gets the new rendered result.</li>
+        <li>React compares it with the previous result.</li>
+        <li>React identifies differences.</li>
+        <li>React determines the required DOM changes.</li>
+        <li>React commits those changes to the browser DOM.</li>
+    </ol>
+
+    <h3>6. What is the relationship between Virtual DOM, Diffing and Reconciliation?</h3>
+
+    <pre>
+New UI
+  ↓
+React Element Tree
+  ↓
+Reconciliation
+  ↓
+Diffing / Comparison
+  ↓
+Find Required Changes
+  ↓
+Update Actual DOM
+    </pre>
+
+    <p>
+        <strong>Virtual DOM:</strong>
+        An in-memory representation of the UI.
+    </p>
+
+    <p>
+        <strong>Diffing:</strong>
+        Comparing the previous and new UI representations.
+    </p>
+
+    <p>
+        <strong>Reconciliation:</strong>
+        The broader process React uses to determine how the UI should
+        be updated.
+    </p>
+
+    <h3>7. Explain the React rendering process in your own words.</h3>
+
+    <p>
+        First, React runs the component and creates a representation of the
+        UI from JSX. When state or props change, React renders the component
+        again. React then compares the new result with the previous result.
+        This comparison is part of reconciliation and uses diffing to find
+        what changed. Finally, React updates only the necessary parts of the
+        browser DOM, and the user sees the updated UI.
+    </p>
