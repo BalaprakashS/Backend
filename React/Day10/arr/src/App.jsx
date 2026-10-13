@@ -1,122 +1,157 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+
+import { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
+  // TASK 1: ARRAY
+  const [skills, setSkills] = useState([
+    "HTML",
+    "CSS",
+    "JavaScript",
+  ]);
+
+  const addReact = () => {
+    setSkills([...skills, "React"]);
+  };
+
+  const updateJavaScript = () => {
+    setSkills(
+      skills.map((skill) =>
+        skill === "JavaScript"
+          ? "Advanced JavaScript"
+          : skill
+      )
+    );
+  };
+
+  // TASK 2: OBJECT
+  const [student, setStudent] = useState({
+    name: "Arun",
+    age: 22,
+    course: "React",
+  });
+
+  const updateCourse = () => {
+    setStudent({ ...student, course: "MERN" });
+  };
+
+  const addCity = () => {
+    setStudent({ ...student, city: "Chennai" });
+  };
+
+  // TASK 3: TOGGLE
+  const [show, setShow] = useState(false);
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="min-h-screen bg-gray-100 p-6">
+      <h1 className="mb-8 text-center text-3xl font-bold text-blue-700">
+        React Simple Tasks
+      </h1>
 
-      <div className="ticks"></div>
+      <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
+        {/* TASK 1: ARRAY */}
+        <section className="rounded-xl bg-white p-6 shadow">
+          <h2 className="mb-4 text-xl font-bold">
+            Task 1 - Array
+          </h2>
+
+          <h3 className="mb-2 font-semibold">Skills List:</h3>
+
+          <ul className="mb-4 list-inside list-disc space-y-2">
+            {skills.map((skill, index) => (
+              <li key={index} className="text-gray-700">
+                {skill}
+              </li>
+            ))}
           </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+          <div className="flex flex-wrap gap-3">
+            <button
+              onClick={addReact}
+              className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
+            >
+              Add React
+            </button>
+
+            <button
+              onClick={updateJavaScript}
+              className="rounded bg-green-600 px-4 py-2 text-white hover:bg-green-700"
+            >
+              Update JavaScript
+            </button>
+          </div>
+        </section>
+
+        {/* TASK 2: OBJECT */}
+        <section className="rounded-xl bg-white p-6 shadow">
+          <h2 className="mb-4 text-xl font-bold">
+            Task 2 - Object
+          </h2>
+
+          <div className="mb-4 space-y-2">
+            <p>
+              Name: <strong>{student.name}</strong>
+            </p>
+            <p>
+              Age: <strong>{student.age}</strong>
+            </p>
+            <p>
+              Course: <strong>{student.course}</strong>
+            </p>
+            <p>
+              City: <strong>{student.city || "Not added"}</strong>
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-3">
+            <button
+              onClick={updateCourse}
+              className="rounded bg-purple-600 px-4 py-2 text-white hover:bg-purple-700"
+            >
+              Update Course
+            </button>
+
+            <button
+              onClick={addCity}
+              className="rounded bg-orange-500 px-4 py-2 text-white hover:bg-orange-600"
+            >
+              Add City
+            </button>
+          </div>
+        </section>
+
+        {/* TASK 3: TOGGLE */}
+        <section className="rounded-xl bg-white p-6 shadow md:col-span-2">
+          <h2 className="mb-4 text-xl font-bold">
+            Task 3 - Toggle
+          </h2>
+
+          <button
+            onClick={() => setShow((prev) => !prev)}
+            className="mb-4 rounded bg-indigo-600 px-5 py-2 text-white hover:bg-indigo-700"
+          >
+            {show ? "Hide Details" : "Show Details"}
+          </button>
+
+          {show ? (
+            <div className="rounded-lg border border-blue-200 bg-blue-50 p-4">
+              <h3 className="mb-2 font-bold text-blue-700">
+                Student Details
+              </h3>
+              <p>Name: Arun</p>
+              <p>Age: 22</p>
+              <p>Course: React</p>
+            </div>
+          ) : (
+            <p className="text-gray-500">
+              Student details are hidden.
+            </p>
+          )}
+        </section>
+
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;

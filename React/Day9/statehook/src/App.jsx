@@ -1,122 +1,133 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+
+import { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
+  // Task 1: Name Change
+  const [name, setName] = useState("Arun");
+
+  // Task 2: Counter
+  const [count, setCount] = useState(0);
+
+  // Task 3: Show / Hide
+  const [show, setShow] = useState(false);
+
+  // Task 4: Input Name
+  const [inputName, setInputName] = useState("");
+
+  // Task 5: Like Button
+  const [likes, setLikes] = useState(0);
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+    <div className="min-h-screen bg-gray-100 p-6">
+      <h1 className="mb-8 text-center text-3xl font-bold text-blue-700">
+        React useState Practice Tasks
+      </h1>
+
+      <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
+
+        {/* Task 1: Name Change */}
+        <div className="rounded-xl bg-white p-6 shadow">
+          <h2 className="mb-3 text-xl font-bold">Task 1: Name Change</h2>
+
+          <p className="mb-4">
+            Name: <span className="font-semibold text-blue-600">{name}</span>
+          </p>
+
+          <button
+            onClick={() => setName("Kumar")}
+            className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
+          >
+            Change Name
+          </button>
         </div>
-        <div>
-          <h1>Get started</h1>
+
+        {/* Task 2: Counter */}
+        <div className="rounded-xl bg-white p-6 shadow">
+          <h2 className="mb-3 text-xl font-bold">Task 2: Counter</h2>
+
+          <p className="mb-4 text-3xl font-bold text-blue-600">{count}</p>
+
+          <div className="flex flex-wrap gap-3">
+            <button
+              onClick={() => setCount(count + 1)}
+              className="rounded bg-green-600 px-4 py-2 text-white hover:bg-green-700"
+            >
+              Increase
+            </button>
+
+            <button
+              onClick={() => setCount(count - 1)}
+              className="rounded bg-red-600 px-4 py-2 text-white hover:bg-red-700"
+            >
+              Decrease
+            </button>
+
+            <button
+              onClick={() => setCount(0)}
+              className="rounded bg-gray-600 px-4 py-2 text-white hover:bg-gray-700"
+            >
+              Reset
+            </button>
+          </div>
+        </div>
+
+        {/* Task 3: Show / Hide */}
+        <div className="rounded-xl bg-white p-6 shadow">
+          <h2 className="mb-3 text-xl font-bold">Task 3: Show / Hide</h2>
+
+          <button
+            onClick={() => setShow(!show)}
+            className="mb-4 rounded bg-purple-600 px-4 py-2 text-white hover:bg-purple-700"
+          >
+            {show ? "Hide Text" : "Show Text"}
+          </button>
+
+          {show && (
+            <p className="font-semibold text-purple-700">
+              Welcome to React
+            </p>
+          )}
+        </div>
+
+        {/* Task 4: Input Name */}
+        <div className="rounded-xl bg-white p-6 shadow">
+          <h2 className="mb-3 text-xl font-bold">Task 4: Input Name</h2>
+
+          <input
+            type="text"
+            value={inputName}
+            onChange={(e) => setInputName(e.target.value)}
+            placeholder="Enter your name"
+            className="mb-4 w-full rounded border border-gray-300 p-3 outline-none focus:border-blue-500"
+          />
+
           <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
+            Entered Name:{" "}
+            <span className="font-semibold text-blue-600">
+              {inputName || "No name entered"}
+            </span>
           </p>
         </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
 
-      <div className="ticks"></div>
+        {/* Task 5: Like Button */}
+        <div className="rounded-xl bg-white p-6 shadow md:col-span-2">
+          <h2 className="mb-3 text-xl font-bold">Task 5: Like Button</h2>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
+          <p className="mb-4 text-lg">
+            Likes: <span className="font-bold text-pink-600">{likes}</span>
+          </p>
+
+          <button
+            onClick={() => setLikes(likes + 1)}
+            className="rounded bg-pink-600 px-5 py-2 text-white hover:bg-pink-700"
+          >
+            Like
+          </button>
         </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
