@@ -1,0 +1,569 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bala's React Assignments</title>
+
+  <link rel="icon" type="image/svg+xml"
+    href="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      min-height: 76px;
+      padding: 16px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: white;
+      background: #071b68;
+      border-bottom: 1px solid #ffffff25;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #e0f2fe;
+      text-decoration: none;
+      font-size: 15px;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #67e8f9;
+    }
+
+    .nav-links .nav-button {
+      padding: 11px 18px;
+      border: 1px solid #ffffff80;
+      border-radius: 25px;
+    }
+
+    /* HOME HERO */
+    .hero {
+      min-height: calc(100vh - 76px);
+      padding: 55px 6%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 45px;
+      color: white;
+      background: linear-gradient(
+        120deg,
+        #071b68 0%,
+        #1d4ed8 55%,
+        #087ca7 100%
+      );
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 650px;
+    }
+
+    .tag {
+      color: #67e8f9;
+      font-weight: bold;
+      letter-spacing: 4px;
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 4.5vw, 66px);
+      line-height: 1.12;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      display: block;
+      color: #67e8f9;
+    }
+
+    .description {
+      color: #dbeafe;
+      font-size: 17px;
+      line-height: 1.9;
+      max-width: 570px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .primary-button,
+    .secondary-button {
+      display: inline-block;
+      padding: 15px 23px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 15px;
+      transition: 0.2s;
+    }
+
+    .primary-button {
+      color: #1d4ed8;
+      background: white;
+      border: 1px solid white;
+    }
+
+    .secondary-button {
+      color: white;
+      border: 1px solid #ffffff90;
+      background: transparent;
+    }
+
+    .primary-button:hover {
+      background: #cffafe;
+      transform: translateY(-2px);
+    }
+
+    .secondary-button:hover {
+      background: #ffffff18;
+    }
+
+    /* RIGHT-SIDE IMAGE */
+    .hero-image {
+      width: 100%;
+      min-width: 0;
+    }
+
+    .hero-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 18px;
+      box-shadow: 0 20px 55px #0005;
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 35px;
+      margin-top: 38px;
+    }
+
+    .stat h3 {
+      font-size: 25px;
+      margin-bottom: 7px;
+    }
+
+    .stat p {
+      color: #dbeafe;
+      font-size: 14px;
+    }
+
+    .hero-footer {
+      text-align: center;
+      color: #dbeafe;
+      background: #087ca7;
+      padding: 18px;
+      letter-spacing: 2px;
+      font-size: 13px;
+    }
+
+    /* ASSIGNMENTS */
+    #assignments {
+      scroll-margin-top: 20px;
+      padding: 45px 5%;
+      min-height: 100vh;
+      background: #f1f5f9;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-heading h2 {
+      color: #1d4ed8;
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .section-heading p {
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    .table-card {
+      max-width: 1200px;
+      margin: auto;
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px #00000012;
+    }
+
+    .table-title {
+      background: #2563eb;
+      color: white;
+      padding: 23px;
+      font-size: 23px;
+      font-weight: bold;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      min-width: 580px;
+      border-collapse: collapse;
+    }
+
+    th {
+      background: #dbeafe;
+      padding: 18px;
+      text-align: left;
+      color: #1e293b;
+    }
+
+    td {
+      padding: 16px 18px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    tbody tr:hover {
+      background: #eff6ff;
+    }
+
+    .view {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 7px;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .view:hover {
+      background: #1d4ed8;
+    }
+
+    .missing {
+      color: #64748b;
+      font-size: 13px;
+    }
+
+    .page-footer {
+      text-align: center;
+      padding: 22px;
+      background: #071b68;
+      color: #dbeafe;
+    }
+
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 850px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 45px 6%;
+      }
+
+      .hero-image {
+        max-width: 650px;
+        margin: 0 auto;
+      }
+
+      .hero h1 {
+        font-size: 45px;
+      }
+
+      .navbar {
+        padding: 18px 5%;
+      }
+
+      .nav-links {
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .navbar {
+        align-items: flex-start;
+      }
+
+      .logo {
+        font-size: 21px;
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .nav-links a {
+        font-size: 13px;
+      }
+
+      .hero h1 {
+        font-size: 37px;
+      }
+
+      .description {
+        font-size: 15px;
+      }
+
+      .stats {
+        gap: 23px;
+      }
+
+      .section-heading h2 {
+        font-size: 26px;
+      }
+
+      .table-title {
+        font-size: 19px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="#home" class="logo">⚛ React Portal</a>
+
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#assignments">Assignments</a>
+      <a href="#assignments" class="nav-button">View Tasks →</a>
+    </div>
+  </nav>
+
+  <!-- FRONT PAGE -->
+  <section class="hero" id="home">
+
+    <div class="hero-content" id="about">
+      <p class="tag">MY LEARNING JOURNEY</p>
+
+      <h1>
+        Welcome to My
+        <span>React Assignments</span>
+      </h1>
+
+      <p class="description">
+        Explore my React learning journey from Day 1 to Day 15.
+        Discover my practice tasks, projects, and coding progress
+        in one place. Learn, build, and improve with every assignment.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#assignments" class="primary-button">
+          Explore Assignments →
+        </a>
+
+        <a href="#about" class="secondary-button">
+          About This Portal
+        </a>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <h3>15</h3>
+          <p>Learning Days</p>
+        </div>
+
+        <div class="stat">
+          <h3>React</h3>
+          <p>Technology</p>
+        </div>
+
+        <div class="stat">
+          <h3>Practice</h3>
+          <p>Learn and Build</p>
+        </div>
+      </div>
+    </div>
+
+
+
+  </section>
+
+  <div class="hero-footer">
+    LEARN • BUILD • PRACTICE • IMPROVE
+  </div>
+
+  <!-- ASSIGNMENT TABLE -->
+  <section id="assignments">
+
+    <div class="section-heading">
+      <h2>My React Assignments</h2>
+      <p>Choose a day below to explore the corresponding practice tasks.</p>
+    </div>
+
+    <div class="table-card">
+
+      <div class="table-title">
+        ⚛ React Assignments
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>Task</th>
+              <th>Assignment</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Day 1</td>
+              <td>Task 1</td>
+              <td>React Fundamentals - Basics</td>
+               <td><a class="view" href="file:///E:/SLA-Backend/React/Day1/intro.html" target="_blank" rel="noopener noreferrer">View</a></td>
+            </tr>
+
+            <tr>
+              <td>Day 2</td>
+              <td>Task 1</td>
+              <td>React - Project Setup - Create Phase</td>
+              <td><a class="view" href="https://backend-zo85.vercel.app/" target="_blank" rel="noopener noreferrer">View</a></td>
+            </tr>
+
+            <tr>
+              <td>Day 3</td>
+              <td>Task 1</td>
+              <td>React Components</td>
+              <td><a class="view" href="https://backend-kl3y.vercel.app/" target="_blank" rel="noopener noreferrer">View</a></td>
+            </tr>
+
+            <tr>
+              <td>Day 4</td>
+              <td>Task 1</td>
+              <td>React - Presentation</td>
+              <td><a class="view" href="https://backend-yi8a.vercel.app/" target="_blank" rel="noopener noreferrer">View</a></td>
+            </tr>
+
+            <tr>
+              <td>Day 5</td>
+              <td>Task 1</td>
+              <td>React Rendering Methods</td>
+              <td><a class="view" href="https://backend-j2w9.vercel.app/" target="_blank" rel="noopener noreferrer">View</a></td>
+            </tr>
+
+            <tr>
+              <td>Day 6</td>
+              <td>Task 1</td>
+              <td>React Components</td>
+              <td><a class="view" href="https://backend-6k9m.vercel.app/" target="_blank" rel="noopener noreferrer">View</a></td>
+            </tr>
+
+            <tr>
+              <td>Day 7</td>
+              <td>Task 1</td>
+              <td>Rendering Methods - React</td>
+              <td><a class="view" href="https://backend-3m7l.vercel.app/" target="_blank" rel="noopener noreferrer">View</a></td>
+            </tr>
+
+            <tr>
+              <td>Day 8</td>
+              <td>Task 1</td>
+              <td>React - Router - DOM - Process</td>
+              <td><a class="view" href="https://backend-goup.vercel.app/" target="_blank" rel="noopener noreferrer">View</a></td>
+            </tr>
+
+            <tr>
+              <td>Day 9</td>
+              <td>Task 1</td>
+              <td>Hooks with Rendering Methods</td>
+              <td><a class="view" href="https://backend-1irn.vercel.app/" target="_blank" rel="noopener noreferrer">View</a></td>
+            </tr>
+
+            <tr>
+              <td>Day 10</td>
+              <td>Task 1</td>
+              <td>Array& Objects handling - Boolean Handling</td>
+              <td><a class="view" href="https://backend-4mo8.vercel.app/" target="_blank" rel="noopener noreferrer">View</a></td>>
+            </tr>
+
+            <tr>
+              <td>Day 11</td>
+              <td>Task 1</td>
+              <td> UseState - Rendering Process</td>
+              <td><a class="view" href="https://backend-v4y5.vercel.app/" target="_blank" rel="noopener noreferrer">View</a></td>
+            </tr>
+
+            <tr>
+              <td>Day 12</td>
+              <td>Task 1</td>
+              <td> React Rendering Methods</td>
+              <td><a class="view" href="https://backend-s9d2.vercel.app/" target="_blank" rel="noopener noreferrer">View</a></td>
+            </tr>
+
+            <tr>
+              <td>Day 13</td>
+              <td>Task 1</td>
+              <td>React Form Handling</td>
+              <td><a class="view" href="https://backend-awzu.vercel.app/" target="_blank" rel="noopener noreferrer">View</a></td>
+            </tr>
+
+            <tr>
+              <td>Day 14</td>
+              <td>Task 1</td>
+              <td>UseState Form Handling</td>
+              <td><a class="view" href="https://backend-thiu.vercel.app/" target="_blank" rel="noopener noreferrer">View</a></td>
+            </tr>
+
+            <tr>
+              <td>Day 15</td>
+              <td>Task 1</td>
+              <td>UseState React - Form Handling</td>
+              <td><a class="view" href="https://backend-3m81.vercel.app/" target="_blank" rel="noopener noreferrer">View</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <footer class="page-footer">
+    Bala's React Assignment Dashboard
+  </footer>
+
+</body>
+</html>
