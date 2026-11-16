@@ -1,0 +1,5 @@
+
+Platform: win32
+Architecture: x64
+Hostname: DESKTOP-9HJ05V5
+Total RAM: 5.89 GB
